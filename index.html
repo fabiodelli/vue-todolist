@@ -22,14 +22,14 @@
            
             <div>
                 <h1>Todo List</h1>
-                <input type="text" v-model="newMansionText">
-                <button class="mb-2" v-on:click="addMansion">Aggiungi</button>
+                <input type="text" v-model="newTaskText">
+                <button class="mb-2" @:click,keyup="addTask">Aggiungi</button>
     
                 <ul>
-                    <li v-for="mansion in todo">
-                        <span v-if="mansion.done" style="text-decoration:line-through">{{ mansion.text }}</span>
-                        <span v-else>{{ mansion.text }}</span>
-                        <button class="delete justify-content-center align-items-center" v-on:click="removeMansion(mansion)">x</button>
+                    <li v-for="task in todo">
+                        <span v-if="task.done" style="text-decoration:line-through">{{ task.text }}</span>
+                        <span v-else>{{ task.text }}</span>
+                        <button class="delete" v-on:click="removeTask(task)">x</button>
                     </li>
                 </ul>
             </div>

@@ -30,19 +30,19 @@ createApp({
                 { text: 'Fare la spesa', done: true },
                 { text: 'Aggiornare windows', done: false }
             ],
-            newMansionText: ''
+            newTaskText: ''
         }
     },
 
     methods: {
-        addMansion() {
-            if (this.newMansionText) {
-                this.todo.push({ text: this.newMansionText, done: false });
-                this.newMansionText = '';
+        addTask() {
+            if (this.newTaskText) {
+                this.todo.push({ text: this.newTaskText, done: false });
+                this.newTaskText = '';
             }
         },
-        removeMansion(mansion) {
-            const index = this.todo.indexOf(mansion);
+        removeTask(task) {
+            const index = this.todo.indexOf(task);
             if (index > -1) {
                 this.todo.splice(index, 1);
             }
