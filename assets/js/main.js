@@ -25,10 +25,28 @@ const { createApp } = Vue
 createApp({
     data() {
         return {
-            message: 'Hello Vue!'
+            todo: [
+                { text: 'Ricaricare pile', done: false },
+                { text: 'Fare la spesa', done: true },
+                { text: 'Aggiornare windows', done: false }
+            ],
+            newMansionText: ''
         }
     },
+
     methods: {
-        
-    },
+        addMansion() {
+            if (this.newMansionText) {
+                this.todo.push({ text: this.newMansionText, done: false });
+                this.newMansionText = '';
+            }
+        },
+        removeMansion(mansion) {
+            const index = this.todo.indexOf(mansion);
+            if (index > -1) {
+                this.todo.splice(index, 1);
+            }
+        }
+    }
+
 }).mount('#app')
