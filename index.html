@@ -21,20 +21,19 @@
         <div id="app">
             <div class="container vh-100 vw-100 d-flex justify-content-center align align-items-center">
 
-                <div>
+                <div class="bg-info p-5 rounded-2 border border-2 border-dark">
                     <h1>Todo List</h1>
-                    <input type="text" v-model="newTaskText">
-                    <button class="mb-2" @:click="addTask">Aggiungi</button>
-                    <ul>
-                        <li v-for="task in todo">
-                            <span v-if="task.done" style="text-decoration:line-through">{{ task.text }}</span>
-                            <span v-else>{{ task.text }}</span>
-                            <button v-if="task.done" class="delete bg-success" @:click="removeTask(task)">x</button>
-                            <button v-else class=" delete bg-danger" @:click="removeTask(task)">x</button>
+                    <input class="p-1 mb-4 me-2 border border-2 border-dark" type="text" v-model="newTaskText" placeholder="Add task" >
+                    <button class="mb-2 rounded-2 p-1 bg-primary text-white" @:click="addTask">Aggiungi</button>
+                    <ul class="m-0 p-0">
+                        <li v-for="task in todo" class="d-flex justify-content-between">
+                            <span class="bg-primary rounded-2 pe-2 ps-2 mt-2 mb-2 text-white" v-if="task.done" style="text-decoration:line-through">{{ task.text }}</span>
+                            <span class="bg-primary rounded-2 pe-2 ps-2 mt-2 mb-2 text-white" v-else>{{ task.text }}</span>
+                            <button v-if="task.done" class="delete bg-success rounded-2 d-flex justify-content-center align-items-center " @:click="removeTask(task)">x</button>
+                            <button v-else class=" delete bg-danger rounded-2 d-flex justify-content-center align-items-center" @:click="removeTask(task)">x</button>
                         </li>
                     </ul>
                 </div>
-
             </div>
         </div>
 
